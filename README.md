@@ -9,7 +9,7 @@
  ╚══╝╚══╝ ╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
 ```
 
-### 🔍 Chcker script detector for the WordPress Core REST Batch API pre-auth RCE
+### 🔍 Checker detector for the WordPress Core REST Batch API pre-auth RCE
 
 [![Python](https://img.shields.io/badge/python-3.7%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Severity](https://img.shields.io/badge/CVSS-9.8%20CRITICAL-red?logo=hackthebox&logoColor=white)](#)
@@ -26,7 +26,7 @@
 
 ---
 
-## 📌 Overview
+## :pushpin: Overview
 
 | 🏷️ | |
 |---|---|
@@ -39,7 +39,7 @@
 
 ---
 
-## ⚠️ Disclaimer — Read Before Use
+## :warning: Disclaimer — Read Before Use
 
 > **This tool is strictly for authorized security testing and defensive verification purposes only.**
 
@@ -55,7 +55,7 @@
 
 ---
 
-## 🧠 How It Works
+## :brain: How It Works
 
 WordPress Core's REST Batch API (`/wp-json/batch/v1`) keeps three parallel arrays in sync while resolving a batch of sub-requests. An intentionally malformed sub-request **desynchronizes** them — causing every subsequent sub-request to be dispatched using the **wrong handler and permission callback**.
 
@@ -81,34 +81,34 @@ Additionally, the tool performs **passive WAF/CDN fingerprinting** 🛡️ from 
 
 ---
 
-## 🚀 Usage
+## :rocket: Usage
 
 ```bash
-# 🔍 Basic scan
+# Basic scan
 ./wp2shell_checker.py https://your-site.com
 
-# 🌐 Multiple targets in one run
+# Multiple targets in one run
 ./wp2shell_checker.py https://site1.com https://site2.com https://site3.com
 
-# ⚙️  Force the ?rest_route=/batch/v1 form (skip auto-detection)
+# Force the ?rest_route=/batch/v1 form (skip auto-detection)
 ./wp2shell_checker.py https://your-site.com --query-param
 
-# ⏱️  Custom timeout
+# Custom timeout
 ./wp2shell_checker.py https://your-site.com --timeout 20
 
-# 📄 Show full raw request/response (payload, headers, body)
+# Show full raw request/response (payload, headers, body)
 ./wp2shell_checker.py https://your-site.com --raw
 
-# 🚫 Disable colors/animation (for logging to a file)
+# Disable colors/animation (for logging to a file)
 ./wp2shell_checker.py https://your-site.com --no-color > scan_report.txt
 ```
 
 <details>
-<summary><strong>📋 All flags</strong></summary>
+<summary><strong>:triangular_flag_on_post: All flags</strong></summary>
 
 <br/>
 
-| 🏳️ Flag | 📝 Description |
+| :label: Flag | :memo: Description |
 |---|---|
 | `targets` | One or more base URLs to scan **(required)** |
 | `--query-param` | Force the `?rest_route=/batch/v1` form instead of auto-detecting |
@@ -118,37 +118,37 @@ Additionally, the tool performs **passive WAF/CDN fingerprinting** 🛡️ from 
 
 </details>
 
-### ⚙️ Requirements
+### :gear: Requirements
 
-- 🐍 Python **3.7+**
-- 📦 No external dependencies — standard library only
+- :snake: Python **3.7+**
+- :package: No external dependencies — standard library only
 
 ---
 
 
-## 🩹 Remediation
+## :adhesive_bandage: Remediation
 
-If a target comes back **VULNERABLE** 🔴:
+If a target comes back **VULNERABLE** :red_circle:
 
-1. 🔄 **Update WordPress immediately** to `7.0.2` (or `6.9.5` on the 6.9 branch). Confirm the update actually applied.
-2. 🛡️ If an immediate update isn't possible, apply a temporary mitigation:
+1. :arrows_counterclockwise: **Update WordPress immediately** to `7.0.2` (or `6.9.5` on the 6.9 branch). Confirm the update actually applied.
+2. :shield: If an immediate update isn't possible, apply a temporary mitigation:
    - Install **Disable WP REST API** plugin to block unauthenticated REST access.
    - Block `/wp-json/batch/v1` **and** `?rest_route=/batch/v1` at your WAF/reverse proxy — both forms must be blocked.
    - Deploy a must-use plugin requiring authentication for the batch route.
-3. 🗂️ Inventory **every** WordPress instance in scope — staging and campaign sites are the ones that get missed.
+3. :card_index_dividers: Inventory **every** WordPress instance in scope — staging and campaign sites are the ones that get missed.
 
 ---
 
-## 📚 References
+## :books: References
 
-| 🔗 | |
+| :link: | |
 |---|---|
-| 🌐 | [wp2shell.com](https://wp2shell.com) — original checker & advisory, Searchlight Cyber |
-| 📖 | [Hadrian Security — Technical Breakdown](https://hadrian.io/blog/wp2shell-a-pre-authentication-rce-in-wordpress-cores-rest-batch-api) |
+| :globe_with_meridians: | [wp2shell.com](https://wp2shell.com) — original checker & advisory, Searchlight Cyber |
+| :page_facing_up: | [Hadrian Security — Technical Breakdown](https://hadrian.io/blog/wp2shell-a-pre-authentication-rce-in-wordpress-cores-rest-batch-api) |
 
 ---
 
-## 📄 License
+## :page_with_curl: License
 
 This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
 
