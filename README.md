@@ -31,6 +31,14 @@
 
 ---
 
+## Evidence
+
+> Screenshot of the tool detecting a vulnerable WordPress instance in an authorized internal VAPT engagement.
+
+![Evidence](./evidence.png)
+
+---
+
 ## Disclaimer — Read Before Use
 
 > **This tool is strictly for authorized security testing and defensive verification purposes only.**
@@ -105,14 +113,6 @@ Additionally, the tool performs **passive WAF/CDN fingerprinting** from response
 
 - Python **3.7+**
 - No external dependencies — standard library only
-
----
-
-## Evidence
-
-> Screenshot of the tool detecting a vulnerable WordPress instance in an authorized internal VAPT engagement.
-
-![Evidence](./evidence.png)
 
 ---
 
