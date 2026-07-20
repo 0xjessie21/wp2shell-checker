@@ -35,7 +35,7 @@
 
 > Screenshot of the tool detecting a vulnerable WordPress instance in an authorized internal VAPT engagement.
 
-![Evidence](./evidence.png)
+![Evidence](./wp2shell_checker.png)
 
 ---
 
