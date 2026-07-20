@@ -1,11 +1,13 @@
-```
-██╗ ██╗██████╗ ██████╗ ███████╗██╗ ██╗███████╗██╗ ██╗
-██║ ██║██╔══██╗╚════██╗██╔════╝██║ ██║██╔════╝██║ ██║
-██║ █╗ ██║██████╔╝ █████╔╝███████╗███████║█████╗ ██║ ██║
-██║███╗██║██╔═══╝ ██╔═══╝ ╚════██║██╔══██║██╔══╝ ██║ ██║
-╚███╔███╔╝██║ ███████╗███████║██║ ██║███████╗███████╗███████╗
-╚══╝╚══╝ ╚═╝ ╚══════╝╚══════╝╚═╝ ╚═╝╚══════╝╚══════╝╚══════╝
-```
+<div align="center">
+<pre>
+__        ______ ____  ____  _   _ _____ _     _     
+\ \      / /  _ \___ \/ ___|| | | | ____| |   | |    
+ \ \ /\ / /| |_) |__) \___ \| |_| |  _| | |   | |    
+  \ V  V / |  __// __/ ___) |  _  | |___| |___| |___ 
+   \_/\_/  |_|  |_____|____/|_| |_|_____|_____|_____|
+
+  wp2shell-checker  |  WordPress Batch API Desync Detector
+</pre>
 
 > Checker detector for the WordPress Core REST Batch API pre-auth RCE
 
@@ -14,7 +16,11 @@
 [![Mode](https://img.shields.io/badge/mode-non--destructive-brightgreen)](#)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
 
+<br/>
+
 > Created by **[0xjessie21](https://github.com/0xjessie21)** — Cybersecurity ILCS
+
+</div>
 
 ---
 
@@ -33,9 +39,13 @@
 
 ## Evidence
 
+<div align="center">
+
 > Screenshot of the tool detecting a vulnerable WordPress instance in an authorized internal VAPT engagement.
 
 ![Evidence](./wp2shell_checker.png)
+
+</div>
 
 ---
 
@@ -77,7 +87,11 @@ This tool sends one crafted batch request and inspects the **response codes only
 
 Additionally, the tool performs **passive WAF/CDN fingerprinting** from response headers:
 
-> `Cloudflare` · `Sucuri` · `Akamai` · `AWS CloudFront` · `Imperva` · `Fastly` · `F5 BIG-IP` · `Wordfence`
+<div align="center">
+
+`Cloudflare` · `Sucuri` · `Akamai` · `AWS CloudFront` · `Imperva` · `Fastly` · `F5 BIG-IP` · `Wordfence`
+
+</div>
 
 ---
 
@@ -118,23 +132,27 @@ Additionally, the tool performs **passive WAF/CDN fingerprinting** from response
 
 ## Remediation
 
-If a target comes back **VULNERABLE** :
+If a target comes back **VULNERABLE**:
 
 1. **Update WordPress immediately** to `7.0.2` (or `6.9.5` on the 6.9 branch). Confirm the update actually applied.
 2. If an immediate update isn't possible, apply a temporary mitigation:
- - Install **Disable WP REST API** plugin to block unauthenticated REST access.
- - Block `/wp-json/batch/v1` **and** `?rest_route=/batch/v1` at your WAF/reverse proxy — both forms must be blocked.
- - Deploy a must-use plugin requiring authentication for the batch route.
+   - Install **Disable WP REST API** plugin to block unauthenticated REST access.
+   - Block `/wp-json/batch/v1` **and** `?rest_route=/batch/v1` at your WAF/reverse proxy — both forms must be blocked.
+   - Deploy a must-use plugin requiring authentication for the batch route.
 3. Inventory **every** WordPress instance in scope — staging and campaign sites are the ones that get missed.
 
 ---
 
 ## References
 
+<div align="center">
+
 | | |
 |---|---|
-| | [wp2shell.com](https://wp2shell.com) — original checker & advisory, Searchlight Cyber |
-| | [Hadrian Security — Technical Breakdown](https://hadrian.io/blog/wp2shell-a-pre-authentication-rce-in-wordpress-cores-rest-batch-api) |
+| [wp2shell.com](https://wp2shell.com) | original checker & advisory, Searchlight Cyber |
+| [Hadrian Security — Technical Breakdown](https://hadrian.io/blog/wp2shell-a-pre-authentication-rce-in-wordpress-cores-rest-batch-api) | root cause analysis |
+
+</div>
 
 ---
 
@@ -144,6 +162,10 @@ This project is licensed under the MIT License — see the [LICENSE](./LICENSE) 
 
 ---
 
+<div align="center">
+
 **Cybersecurity ILCS** · built for internal defensive use
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=0xjessie21.wp2shell)
+
+</div>
